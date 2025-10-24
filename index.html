@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Pagina Web - Proyecto Ambiental</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Pestañas */
+        .tabs-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            transform: scale(1.05);
+        }
+
+        /* Contenido Principal */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            flex: 1;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tabla de Flores */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tbody tr:hover {
+            background-color: #f1f8e9;
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 40px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #a5d6a7;
+        }
+
+        .footer-text {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        /* Iconos de redes sociales con texto */
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .social-icon span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>🌿 Mi Primera Pagina Web Proyecto Ambiental 🌿</h1>
+    </header>
+
+    <!-- Pestañas -->
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'tab1')">Inicio</button>
+            <button class="tab" onclick="openTab(event, 'tab2')">Flores</button>
+            <button class="tab" onclick="openTab(event, 'tab3')">Medio Ambiente</button>
+            <button class="tab" onclick="openTab(event, 'tab4')">Conservación</button>
+            <button class="tab" onclick="openTab(event, 'tab5')">Contacto</button>
+        </div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="content">
+        <!-- Pestaña 1: Inicio -->
+        <div id="tab1" class="tab-content active">
+            <h2>🌱 Bienvenidos al Proyecto Ambiental</h2>
+            <p>Este sitio está dedicado a la conservación y apreciación de la naturaleza, con especial énfasis en la flora de nuestro planeta.</p>
+        </div>
+
+        <!-- Pestaña 2: Flores -->
+        <div id="tab2" class="tab-content">
+            <h2>🌺 Catálogo de Flores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre de la Flor</th>
+                        <th>Color Principal</th>
+                        <th>Temporada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Rosa</td>
+                        <td>Rojo / Rosa</td>
+                        <td>Primavera-Verano</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Girasol</td>
+                        <td>Amarillo</td>
+                        <td>Verano</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Tulipán</td>
+                        <td>Variado</td>
+                        <td>Primavera</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Orquídea</td>
+                        <td>Variado</td>
+                        <td>Todo el año</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Margarita</td>
+                        <td>Blanco</td>
+                        <td>Primavera-Verano</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Lavanda</td>
+                        <td>Morado</td>
+                        <td>Verano</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Clavel</td>
+                        <td>Rojo / Rosa</td>
+                        <td>Todo el año</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Lirio</td>
+                        <td>Blanco / Amarillo</td>
+                        <td>Primavera</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Jazmín</td>
+                        <td>Blanco</td>
+                        <td>Primavera-Verano</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Hortensia</td>
+                        <td>Azul / Rosa</td>
+                        <td>Verano</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pestaña 3: Medio Ambiente -->
+        <div id="tab3" class="tab-content">
+            <h2>🌍 Cuidado del Medio Ambiente</h2>
+            <p>La preservación de nuestro planeta es responsabilidad de todos. Cada pequeña acción cuenta para un futuro más verde.</p>
+            <ul style="margin-top: 20px; line-height: 2;">
+                <li>Reducir el uso de plásticos</li>
+                <li>Reciclar materiales</li>
+                <li>Plantar árboles y flores</li>
+                <li>Conservar el agua</li>
+                <li>Usar energías renovables</li>
+            </ul>
+        </div>
+
+        <!-- Pestaña 4: Conservación -->
+        <div id="tab4" class="tab-content">
+            <h2>🌳 Proyectos de Conservación</h2>
+            <p>Trabajamos activamente en la protección de especies florales en peligro y la restauración de ecosistemas naturales.</p>
+        </div>
+
+        <!-- Pestaña 5: Contacto -->
+        <div id="tab5" class="tab-content">
+            <h2>📧 Contacto</h2>
+            <p>¿Quieres participar en nuestros proyectos ambientales? ¡Contáctanos a través de nuestras redes sociales!</p>
+            <p style="margin-top: 20px;"><strong>Síguenos en nuestras redes sociales en el footer de esta página.</strong></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">Síguenos en nuestras redes sociales</p>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" class="social-icon">
+                <div>📘</div>
+                <span>Facebook</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon">
+                <div>📷</div>
+                <span>Instagram</span>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-icon">
+                <div>🐦</div>
+                <span>Twitter</span>
+            </a>
+        </div>
+        <p style="margin-top: 20px; font-size: 14px;">© 2024 Proyecto Ambiental - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Ocultar todo el contenido de las pestañas
+            var tabContents = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove("active");
+            }
+
+            // Remover la clase active de todas las pestañas
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+
+            // Mostrar el contenido de la pestaña actual
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
